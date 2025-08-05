@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Applications | NextGig</title>
+  <link rel="stylesheet" href="applications.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="dashboard.html" class="brand-link">
+          <!-- Optional: Add logo SVG here -->
+          <svg class="nav-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          <span class="brand-text">NextGig</span>
+        </a>
+      </div>
+      <div class="nav-menu">
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="applications.html" class="nav-link active" aria-current="page">My Applications</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <h1 class="page-title">My Applications</h1>
+      <p class="intro-text">Here are the jobs you've applied for:</p>
+      <ul id="applications-list" class="applications-list">
+        <li class="application-item">Loading applications...</li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Firebase v9+ Modular SDK via CDN -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+    import { getFirestore, collection, query, where, orderBy, getDocs, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+    
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyD37yUXsB6Pk8VrTIog7TiR1L_OPZO5SRA",
+      authDomain: "nextgig-5ab10.firebaseapp.com",
+      projectId: "nextgig-5ab10",
+      storageBucket: "nextgig-5ab10.firebasestorage.app",
+      messagingSenderId: "604733323193",
+      appId: "1:604733323193:web:da71409d9182b63cace868",
+      measurementId: "G-13FM6RXNW2"
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+    
+    // Make Firebase services available globally
+    window.firebase = {
+      auth: () => auth,
+      firestore: () => db
+    };
+    
+    // Initialize the applications page
+    document.addEventListener('DOMContentLoaded', function() {
+      loadApplications();
+    });
+  </script>
+
+  <!-- Application Logic -->
+  <script src="applications.js"></script>
+</body>
+</html>

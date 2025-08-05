@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gig Details | NextGig</title>
+  <link rel="stylesheet" href="gigs.css">
+  <style>
+    .gig-details-container {
+      max-width: 700px;
+      margin: 110px auto 2rem auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 2rem 2.5rem;
+    }
+    .gig-details-title {
+      font-size: 2rem;
+      color: #0d6efd;
+      margin-bottom: 0.5rem;
+    }
+    .gig-details-company {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+    .gig-details-section {
+      margin-bottom: 1.5rem;
+    }
+    .gig-details-label {
+      font-weight: 600;
+      color: #333;
+      margin-right: 0.5rem;
+    }
+    .gig-details-apply {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 2rem;
+    }
+    .gig-details-apply .btn {
+      font-size: 1.1rem;
+      padding: 0.75rem 2rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="../../index.html">
+          <svg class="nav-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          NextGig
+        </a>
+      </div>
+      <div class="nav-menu">
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="gigs.html" class="nav-link active">Browse Gigs</a>
+        <a href="applications.html" class="nav-link">My Applications</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+      </div>
+      <div class="nav-toggle" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+  <div class="gig-details-container">
+    <div id="gig-details-content">
+      <!-- Details will be injected here -->
+    </div>
+    <div class="gig-details-apply">
+      <a id="apply-now-btn" href="#" class="btn btn-primary">Apply Now</a>
+    </div>
+  </div>
+  <script>
+    // All jobs from gigs.html and more-gigs.html
+    const gigs = {
+      "Full-Stack Web Developer for E-commerce Site": {
+        company: "ShopLocal Inc.",
+        location: "Remote",
+        pay: "$75 / hour",
+        skills: "React, Node.js, Firebase, Stripe API",
+        description: "Work with a fast-growing e-commerce startup to build and maintain a scalable web platform. Collaborate with designers and product managers."
+      },
+      "Licensed Electrician for Small Business Retrofit": {
+        company: "Main Street Bakery",
+        location: "New York, NY",
+        pay: "$60 / hour",
+        skills: "Commercial Wiring, Conduit Bending, Safety Compliance",
+        description: "Retrofit a small business with new electrical systems. Must be licensed and experienced in commercial work."
+      },
+      "Graphic Designer for Social Media Campaign": {
+        company: "Growth Marketing Co.",
+        location: "Remote",
+        pay: "$1,500 (Project Fee)",
+        skills: "Adobe Creative Suite, Canva, Branding",
+        description: "Design creative assets for a major social media campaign. Work closely with the marketing team."
+      },
+      "Remote Customer Support Specialist": {
+        company: "HelpDeskPro",
+        location: "Remote",
+        pay: "$22 / hour",
+        skills: "Customer Service, Communication, CRM Tools",
+        description: "Provide remote support to customers via chat, email, and phone. Must have excellent communication skills and experience with CRM tools."
+      },
+      "Content Writer for Tech Blog": {
+        company: "TechTalk Media",
+        location: "Remote",
+        pay: "$120 per article",
+        skills: "Blogging, SEO, Technical Writing",
+        description: "Write engaging and informative articles for a leading tech blog. SEO and technical writing experience required."
+      },
+      "Mobile App Tester (Freelance)": {
+        company: "AppQuality Labs",
+        location: "Remote",
+        pay: "$30 / hour",
+        skills: "QA Testing, Android/iOS, Bug Reporting",
+        description: "Test mobile apps on various devices and report bugs. Experience with both Android and iOS preferred."
+      },
+      "Administrative Assistant (Part-Time)": {
+        company: "OfficeEase Solutions",
+        location: "San Francisco, CA",
+        pay: "$28 / hour",
+        skills: "Scheduling, Data Entry, Microsoft Office",
+        description: "Assist with scheduling, data entry, and office tasks. Part-time, flexible hours."
+      },
+      "Freelance Video Editor": {
+        company: "Visionary Media",
+        location: "Remote",
+        pay: "$500 per project",
+        skills: "Adobe Premiere, Final Cut, Storytelling",
+        description: "Edit video content for various clients. Must have a strong portfolio and experience with major editing software."
+      },
+      "Remote Data Entry Specialist": {
+        company: "DataFlow Solutions",
+        location: "Remote",
+        pay: "$18 / hour",
+        skills: "Data Entry, Excel, Attention to Detail",
+        description: "Enter and manage data for various projects. Accuracy and attention to detail are a must."
+      },
+      "Junior Frontend Developer": {
+        company: "PixelWorks Studio",
+        location: "Remote",
+        pay: "$35 / hour",
+        skills: "HTML, CSS, JavaScript, Responsive Design",
+        description: "Assist in building and maintaining client websites. Great for recent graduates or those new to the field."
+      },
+      "Bookkeeper (Part-Time)": {
+        company: "GreenLeaf Accounting",
+        location: "Remote",
+        pay: "$25 / hour",
+        skills: "QuickBooks, Invoicing, Financial Reporting",
+        description: "Manage invoices and financial records for small business clients. Part-time, remote."
+      },
+      "Warehouse Assistant": {
+        company: "FastShip Logistics",
+        location: "Dallas, TX",
+        pay: "$20 / hour",
+        skills: "Inventory, Packing, Forklift Operation",
+        description: "Assist with warehouse operations, packing, and inventory. Forklift certification a plus."
+      },
+      "Remote Social Media Manager": {
+        company: "SocialBuzz Agency",
+        location: "Remote",
+        pay: "$40 / hour",
+        skills: "Social Media, Content Creation, Analytics",
+        description: "Manage social media accounts and create content for clients. Analytics experience preferred."
+      },
+      "Onsite Plumber": {
+        company: "PipePros",
+        location: "Chicago, IL",
+        pay: "$55 / hour",
+        skills: "Plumbing, Pipe Fitting, Repairs",
+        description: "Perform plumbing repairs and installations for residential and commercial clients."
+      },
+      "Remote UX Researcher": {
+        company: "Insightful Labs",
+        location: "Remote",
+        pay: "$50 / hour",
+        skills: "User Interviews, Usability Testing, Research Reports",
+        description: "Conduct user research and usability testing for digital products. Experience with research tools required."
+      },
+      "Event Photographer": {
+        company: "SnapShot Events",
+        location: "Atlanta, GA",
+        pay: "$400 per event",
+        skills: "Photography, Editing, Event Coverage",
+        description: "Photograph events and provide edited images to clients. Must have own equipment."
+      }
+    };
+    function getJobTitleFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('jobTitle');
+    }
+    function renderGigDetails() {
+      const jobTitle = getJobTitleFromURL();
+      const gig = gigs[jobTitle];
+      const content = document.getElementById('gig-details-content');
+      if (!gig) {
+        content.innerHTML = `<h2 class='gig-details-title'>Job Not Found</h2><p>Sorry, we couldn't find details for this job.</p>`;
+        document.getElementById('apply-now-btn').style.display = 'none';
+        return;
+      }
+      content.innerHTML = `
+        <h2 class='gig-details-title'>${jobTitle}</h2>
+        <div class='gig-details-company'><strong>Company:</strong> ${gig.company}</div>
+        <div class='gig-details-section'><span class='gig-details-label'>Location:</span> ${gig.location}</div>
+        <div class='gig-details-section'><span class='gig-details-label'>Pay:</span> ${gig.pay}</div>
+        <div class='gig-details-section'><span class='gig-details-label'>Skills:</span> ${gig.skills}</div>
+        <div class='gig-details-section'><span class='gig-details-label'>Description:</span> ${gig.description}</div>
+      `;
+      document.getElementById('apply-now-btn').href = `apply.html?jobTitle=${encodeURIComponent(jobTitle)}`;
+    }
+    document.addEventListener('DOMContentLoaded', renderGigDetails);
+  </script>
+</body>
+</html>

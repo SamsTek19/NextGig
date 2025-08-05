@@ -1,0 +1,101 @@
+/* Contact Us Styles */
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e3f2fd;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-brand a {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-brand a:hover {
+    color: #0056b3;
+}
+
+.nav-logo {
+    width: 32px;
+    height: 32px;
+    color: #007BFF;
+    transition: color 0.3s ease;
+}
+
+.nav-brand a:hover .nav-logo {
+    color: #0056b3;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: #475569;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #007BFF;
+    background: rgba(0, 123, 255, 0.1);
+}
+
+.nav-link.active {
+    color: #007BFF;
+    background: rgba(0, 123, 255, 0.1);
+    font-weight: 600;
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #007BFF;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+
+body { font-family: 'Roboto', sans-serif; background: #f8fcff; color: #1C1C1C; }
+.container { max-width: 600px; margin: 2rem auto; background: #fff; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.07); padding: 2rem; }
+.view-title { font-size: 2rem; font-weight: 700; color: #007BFF; margin-bottom: 1.5rem; }
+form#contact-form .form-group { margin-bottom: 1.2rem; }
+form#contact-form label { font-weight: 500; margin-bottom: 0.4rem; display: block; }
+form#contact-form input, form#contact-form textarea { width: 100%; padding: 0.7rem; border: 1px solid #cce0ff; border-radius: 6px; font-size: 1rem; margin-top: 0.2rem; }
+form#contact-form button { background: #007BFF; color: #fff; border: none; border-radius: 6px; padding: 0.8rem 1.5rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+form#contact-form button:hover { background: #0056b3; } 

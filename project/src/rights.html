@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worker Rights | NextGig</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="../../index.html">
+          <svg class="nav-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          NextGig
+        </a>
+      </div>
+      <div class="nav-menu">
+        <a href="auth.html" class="nav-link">Browse Gigs</a>
+        <div class="nav-auth">
+          <a href="auth.html" class="nav-link">Login</a>
+          <a href="auth.html" class="btn btn-primary btn-small">Sign Up</a>
+        </div>
+      </div>
+      <div class="nav-toggle" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <h1 class="view-title">Worker Rights Information Center</h1>
+    <p>Stay informed about your rights, workplace safety, and labor laws to protect yourself and your career.</p>
+
+    <!-- Rights Categories -->
+    <div class="rights-categories">
+        <div class="category-card">
+            <div class="category-icon">⚖️</div>
+            <h3>Labor Laws</h3>
+            <p>Understand your legal rights and protections under federal and state labor laws.</p>
+            <button class="btn btn-primary" onclick="showSection('labor-laws')">Learn More</button>
+        </div>
+        <div class="category-card">
+            <div class="category-icon">🛡️</div>
+            <h3>Workplace Safety</h3>
+            <p>Know your rights to a safe work environment and how to report safety concerns.</p>
+            <button class="btn btn-primary" onclick="showSection('workplace-safety')">Learn More</button>
+        </div>
+        <div class="category-card">
+            <div class="category-icon">💰</div>
+            <h3>Fair Pay & Benefits</h3>
+            <p>Understand minimum wage, overtime, and benefits you're entitled to receive.</p>
+            <button class="btn btn-primary" onclick="showSection('fair-pay')">Learn More</button>
+        </div>
+        <div class="category-card">
+            <div class="category-icon">🤝</div>
+            <h3>Discrimination & Harassment</h3>
+            <p>Know your rights against discrimination and how to report workplace harassment.</p>
+            <button class="btn btn-primary" onclick="showSection('discrimination')">Learn More</button>
+        </div>
+    </div>
+
+    <!-- Labor Laws Section -->
+    <div id="labor-laws" class="rights-section hidden">
+        <h2>Labor Laws & Your Rights</h2>
+        <div class="rights-content">
+            <div class="rights-card">
+                <h3>📋 Fair Labor Standards Act (FLSA)</h3>
+                <ul>
+                    <li><strong>Minimum Wage:</strong> Federal minimum wage is $7.25/hour (states may have higher rates)</li>
+                    <li><strong>Overtime Pay:</strong> 1.5x regular pay for hours worked over 40 per week</li>
+                    <li><strong>Child Labor:</strong> Restrictions on work hours and types of work for minors</li>
+                    <li><strong>Record Keeping:</strong> Employers must maintain accurate time and pay records</li>
+                </ul>
+            </div>
+            <div class="rights-card">
+                <h3>🏥 Family and Medical Leave Act (FMLA)</h3>
+                <ul>
+                    <li>Up to 12 weeks of unpaid leave for qualifying medical and family reasons</li>
+                    <li>Job protection during leave period</li>
+                    <li>Continuation of health insurance benefits</li>
+                    <li>Applies to employers with 50+ employees</li>
+                </ul>
+            </div>
+            <div class="rights-card">
+                <h3>🛡️ Occupational Safety and Health Act (OSHA)</h3>
+                <ul>
+                    <li>Right to a safe and healthy workplace</li>
+                    <li>Right to report safety concerns without retaliation</li>
+                    <li>Right to request workplace safety inspections</li>
+                    <li>Right to access safety training and information</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Workplace Safety Section -->
+    <div id="workplace-safety" class="rights-section hidden">
+        <h2>Workplace Safety & Health</h2>
+        <div class="rights-content">
+            <div class="rights-card">
+                <h3>🚨 Your Safety Rights</h3>
+                <ul>
+                    <li><strong>Safe Equipment:</strong> Right to properly maintained and safe tools/equipment</li>
+                    <li><strong>Safety Training:</strong> Right to receive proper safety training for your job</li>
+                    <li><strong>Protective Equipment:</strong> Right to appropriate personal protective equipment (PPE)</li>
+                    <li><strong>Hazard Communication:</strong> Right to know about workplace hazards and chemicals</li>
+                </ul>
+            </div>
+            <div class="rights-card">
+                <h3>📞 Reporting Safety Issues</h3>
+                <ul>
+                    <li>Report safety concerns to your supervisor immediately</li>
+                    <li>Contact OSHA if employer doesn't address concerns</li>
+                    <li>File a complaint online at osha.gov or call 1-800-321-OSHA</li>
+                    <li>You're protected from retaliation for reporting safety issues</li>
+                </ul>
+            </div>
+            <div class="rights-card">
+                <h3>🏥 Workers' Compensation</h3>
+                <ul>
+                    <li>Medical benefits for work-related injuries/illnesses</li>
+                    <li>Lost wages compensation during recovery</li>
+                    <li>Rehabilitation services if needed</li>
+                    <li>File a claim immediately after workplace injury</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fair Pay Section -->
+    <div id="fair-pay" class="rights-section hidden">
+        <h2>Fair Pay & Benefits</h2>
+        <div class="rights-content">
+            <div class="rights-card">
+                <h3>💰 Minimum Wage Laws</h3>
+                <ul>
+                    <li><strong>Federal Minimum:</strong> $7.25/hour (as of 2024)</li>
+                    <li><strong>State Minimums:</strong> Many states have higher minimum wages</li>
+                    <li><strong>Local Minimums:</strong> Some cities have even higher rates</li>
+                    <li><strong>Tip Workers:</strong> Minimum $2.13/hour if tips bring total to at least minimum wage</li>
+                </ul>
+            </div>
+            <div class="rights-card">
+                <h3>⏰ Overtime Pay</h3>
+                <ul>
+                    <li>1.5x regular pay for hours over 40 per week</li>
+                    <li>Some states require overtime for 8+ hours per day</li>
+                    <li>Exempt employees (salaried) may not qualify for overtime</li>
+                    <li>Keep accurate records of all hours worked</li>
+                </ul>
+            </div>
+            <div class="rights-card">
+                <h3>💼 Benefits & Protections</h3>
+                <ul>
+                    <li><strong>Health Insurance:</strong> May be required for employers with 50+ employees</li>
+                    <li><strong>Unemployment:</strong> Available if you lose your job through no fault of your own</li>
+                    <li><strong>Social Security:</strong> Contributions made through payroll taxes</li>
+                    <li><strong>Equal Pay:</strong> Same pay for same work regardless of gender, race, etc.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Discrimination Section -->
+    <div id="discrimination" class="rights-section hidden">
+        <h2>Discrimination & Harassment Protection</h2>
+        <div class="rights-content">
+            <div class="rights-card">
+                <h3>🚫 Protected Characteristics</h3>
+                <ul>
+                    <li><strong>Race & Color:</strong> Protection from racial discrimination</li>
+                    <li><strong>Gender & Sex:</strong> Equal treatment regardless of gender</li>
+                    <li><strong>Age:</strong> Protection for workers 40 and older</li>
+                    <li><strong>Disability:</strong> Reasonable accommodations required</li>
+                    <li><strong>Religion:</strong> Accommodation for religious practices</li>
+                    <li><strong>National Origin:</strong> Protection regardless of country of origin</li>
+                </ul>
+            </div>
+            <div class="rights-card">
+                <h3>🚨 Harassment Prevention</h3>
+                <ul>
+                    <li>Sexual harassment is illegal in all workplaces</li>
+                    <li>Verbal, physical, and visual harassment are prohibited</li>
+                    <li>Employers must investigate harassment complaints</li>
+                    <li>Retaliation for reporting harassment is illegal</li>
+                </ul>
+            </div>
+            <div class="rights-card">
+                <h3>📞 Reporting Discrimination</h3>
+                <ul>
+                    <li>Report to your supervisor or HR department first</li>
+                    <li>File a complaint with the Equal Employment Opportunity Commission (EEOC)</li>
+                    <li>Contact EEOC at +233-551-694-282 or eeoc.gov</li>
+                    <li>File within 180 days of the discriminatory act</li>
+                    <li>Consider consulting with an employment attorney</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resources & Contact -->
+    <div class="resources-section">
+        <h3>Additional Resources</h3>
+        <div class="resources-grid">
+            <div class="resource-card">
+                <h4>📞 Emergency Contacts</h4>
+                <ul>
+                    <li><strong>OSHA:</strong> +233-551-694-282</li>
+                    <li><strong>EEOC:</strong> +233-545-915-482</li>
+                    <li><strong>Department of Labor:</strong>+233-508-589-087</li>
+                </ul>
+            </div>
+            <div class="resource-card">
+                <h4>🌐 Online Resources</h4>
+                <ul>
+                    <li><a href="https://www.dol.gov" target="_blank">Department of Labor</a></li>
+                    <li><a href="https://www.osha.gov" target="_blank">OSHA Safety</a></li>
+                    <li><a href="https://www.eeoc.gov" target="_blank">EEOC</a></li>
+                </ul>
+            </div>
+            <div class="resource-card">
+                <h4>📋 Document Everything</h4>
+                <ul>
+                    <li>Keep copies of all employment documents</li>
+                    <li>Document incidents with dates and witnesses</li>
+                    <li>Save emails and communications</li>
+                    <li>Maintain a work diary of events</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  </div>
+
+<style>
+:root {
+  --primary-color: #007BFF;
+  --secondary-color: #00BFFF;
+  --border-color: #e3f2fd;
+  --text-dark: #1C1C1C;
+  --text-light: #555;
+  --light-bg: #F8FCFF;
+}
+
+body {
+  background: var(--light-bg);
+  color: var(--text-dark);
+  font-family: 'Roboto', sans-serif;
+}
+
+/* NAVIGATION */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.nav-logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 0.5rem;
+  color: var(--primary-color);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-dark);
+  margin-right: 2rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.nav-auth {
+  display: flex;
+  align-items: center;
+}
+
+.nav-auth .nav-link {
+  margin-right: 1rem;
+}
+
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+.nav-toggle {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--primary-color);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+  .nav-menu {
+    position: fixed;
+    top: 70px; /* Adjust based on nav height */
+    left: -100%; /* Hide by default */
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: #fff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.3s ease-in-out;
+    z-index: 999;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-link {
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  .nav-auth {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+
+  .nav-auth .nav-link {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1rem 2rem 1rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: var(--primary-color);
+  position: relative;
+  padding-bottom: 1rem;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 2px;
+}
+
+.rights-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.category-card {
+  background: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.3s;
+  box-shadow: 0 4px 16px rgba(0,123,255,0.07);
+}
+.category-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 32px rgba(0,123,255,0.13);
+}
+.category-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.category-card h3 {
+  margin: 0 0 1rem 0;
+  color: var(--primary-color);
+  font-size: 1.3rem;
+}
+.category-card p {
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.rights-section {
+  margin-bottom: 3rem;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0,123,255,0.06);
+  padding: 2rem 1.5rem;
+}
+.rights-section h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.7rem;
+  text-align: center;
+}
+.rights-content {
+  display: grid;
+  gap: 1.5rem;
+}
+.rights-card {
+  background: var(--light-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,123,255,0.04);
+}
+.rights-card h3 {
+  margin: 0 0 1rem 0;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+.rights-card ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+.rights-card li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+}
+.rights-card strong {
+  color: var(--primary-color);
+}
+
+.resources-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+.resources-section h3 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.resource-card {
+  background: var(--light-bg);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,123,255,0.04);
+}
+.resource-card h4 {
+  margin: 0 0 1rem 0;
+  color: var(--primary-color);
+}
+.resource-card ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+.resource-card li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+}
+.resource-card a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+.resource-card a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.13);
+}
+.btn:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.18);
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem 0.5rem;
+  }
+  .rights-categories, .resources-grid {
+    grid-template-columns: 1fr;
+  }
+  .rights-section {
+    padding: 1.2rem 0.5rem;
+  }
+}
+</style>
+
+<script>
+// Worker Rights functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize the rights center
+    console.log('Worker Rights Information Center loaded');
+});
+
+function showSection(sectionId) {
+    // Hide all sections
+    const sections = document.querySelectorAll('.rights-section');
+    sections.forEach(section => {
+        section.classList.add('hidden');
+    });
+    
+    // Show the selected section
+    const selectedSection = document.getElementById(sectionId);
+    if (selectedSection) {
+        selectedSection.classList.remove('hidden');
+        selectedSection.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+// Add navigation back to categories
+function showCategories() {
+    const sections = document.querySelectorAll('.rights-section');
+    sections.forEach(section => {
+        section.classList.add('hidden');
+    });
+    
+    // Show categories section
+    document.querySelector('.rights-categories').scrollIntoView({ behavior: 'smooth' });
+}
+</script> 

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="profile.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile | NextGig</title>
+  <link rel="stylesheet" href="profile.css" />
+</head>
+
+<!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="dashboard.html" class="brand-link">
+          <!-- Optional: Add logo SVG here -->
+          <svg class="nav-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          <span class="brand-text">NextGig</span>
+        </a>
+      </div>
+      <div class="nav-menu">
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="applications.html" class="nav-link active" aria-current="page">My Applications</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+      </div>
+    </div>
+  </nav>
+
+<div class="container">
+    <h1 class="view-title">My Profile & Skills</h1>
+    <p>Track your growth, showcase your expertise, and manage your professional reputation.</p>
+    <form id="edit-profile-form">
+        <div class="form-group">
+            <label for="edit-name">Full Name</label>
+            <input type="text" id="edit-name" name="edit-name" required />
+        </div>
+        <div class="form-group">
+            <label for="edit-password">New Password</label>
+            <input type="password" id="edit-password" name="edit-password" />
+        </div>
+        <button type="submit" class="btn btn-primary">Update Profile</button>
+    </form>
+
+    <!-- Profile Overview -->
+    <div class="profile-overview">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <div class="avatar-placeholder">👤</div>
+            </div>
+            <div class="profile-info">
+                <h2 id="user-name">Loading...</h2>
+                <p id="user-role">Loading...</p>
+                <div class="profile-stats">
+                    <div class="stat">
+                        <strong id="completed-gigs">0</strong>
+                        <span>Gigs Completed</span>
+                    </div>
+                    <div class="stat">
+                        <strong id="avg-rating">0.0</strong>
+                        <span>Avg Rating</span>
+                    </div>
+                    <div class="stat">
+                        <strong id="skills-count">0</strong>
+                        <span>Skills</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills & Badges -->
+    <div class="skills-section">
+        <h3>Skills & Certifications</h3>
+        <div class="skills-grid" id="skills-grid">
+            <!-- Skills will be populated by JavaScript -->
+        </div>
+        <button class="btn btn-primary" id="add-skill-btn">Add New Skill</button>
+    </div>
+
+    <!-- Recent Gigs -->
+    <div class="recent-gigs">
+        <h3>Recent Gigs</h3>
+        <div class="gigs-history" id="gigs-history">
+            <!-- Gig history will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Ratings & Reviews -->
+    <div class="ratings-section">
+        <h3>Client Reviews</h3>
+        <div class="reviews-container" id="reviews-container">
+            <!-- Reviews will be populated by JavaScript -->
+        </div>
+    </div>
+</div>
+
+<style>
+.profile-overview {
+    background: var(--light-bg);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.profile-avatar {
+    flex-shrink: 0;
+}
+
+.avatar-placeholder {
+    width: 80px;
+    height: 80px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+}
+
+.profile-info h2 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-dark);
+}
+
+.profile-info p {
+    margin: 0 0 1rem 0;
+    color: var(--text-light);
+    text-transform: capitalize;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.stat span {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.skills-section, .recent-gigs, .ratings-section {
+    margin-bottom: 2rem;
+}
+
+.skills-section h3, .recent-gigs h3, .ratings-section h3 {
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.skill-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.skill-card .skill-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.skill-card h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-dark);
+}
+
+.skill-card .skill-level {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.skill-card .skill-badge {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.gigs-history {
+    display: grid;
+    gap: 1rem;
+}
+
+.gig-history-item {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.gig-history-item h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-dark);
+}
+
+.gig-history-item .gig-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.reviews-container {
+    display: grid;
+    gap: 1rem;
+}
+
+.review-item {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.review-rating {
+    color: #ffc107;
+    font-size: 1.1rem;
+}
+
+.review-date {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.review-text {
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-stats {
+        justify-content: center;
+    }
+    
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<script>
+// Profile page functionality
+document.addEventListener('DOMContentLoaded', function() {
+    loadUserProfile();
+    loadSkills();
+    loadGigHistory();
+    loadReviews();
+});
+
+function loadUserProfile() {
+    // This would typically fetch from Firebase
+    // For now, using mock data
+    const user = {
+        name: "Samuel Agyei Sarfo",
+        role: "freelancer",
+        completedGigs: 12,
+        avgRating: 4.8,
+        skillsCount: 8
+    };
+    
+    document.getElementById('user-name').textContent = user.name;
+    document.getElementById('user-role').textContent = user.role;
+    document.getElementById('completed-gigs').textContent = user.completedGigs;
+    document.getElementById('avg-rating').textContent = user.avgRating;
+    document.getElementById('skills-count').textContent = user.skillsCount;
+}
+
+function loadSkills() {
+    const skills = [
+        { name: "Web Development", icon: "💻", level: "Advanced", badge: "Certified" },
+        { name: "Graphic Design", icon: "🎨", level: "Intermediate", badge: "Verified" },
+        { name: "Digital Marketing", icon: "📈", level: "Beginner", badge: "Learning" },
+        { name: "Project Management", icon: "📋", level: "Intermediate", badge: "Verified" }
+    ];
+    
+    const skillsGrid = document.getElementById('skills-grid');
+    skillsGrid.innerHTML = skills.map(skill => `
+        <div class="skill-card">
+            <div class="skill-icon">${skill.icon}</div>
+            <h4>${skill.name}</h4>
+            <div class="skill-level">${skill.level}</div>
+            <div class="skill-badge">${skill.badge}</div>
+        </div>
+    `).join('');
+}
+
+function loadGigHistory() {
+    const gigs = [
+        {
+            title: "E-commerce Website Development",
+            client: "ShopLocal Inc.",
+            date: "2025-01-15",
+            earnings: "$2,400"
+        },
+        {
+            title: "Logo Design for Startup",
+            client: "TechFlow",
+            date: "2025-01-10",
+            earnings: "$800"
+        }
+    ];
+    
+    const gigsHistory = document.getElementById('gigs-history');
+    gigsHistory.innerHTML = gigs.map(gig => `
+        <div class="gig-history-item">
+            <h4>${gig.title}</h4>
+            <p><strong>Client:</strong> ${gig.client}</p>
+            <div class="gig-meta">
+                <span>${gig.date}</span>
+                <span><strong>${gig.earnings}</strong></span>
+            </div>
+        </div>
+    `).join('');
+}
+
+function loadReviews() {
+    const reviews = [
+        {
+            client: "ShopLocal Inc.",
+            rating: 5,
+            date: "2025-01-15",
+            text: "Excellent work! Samuel delivered exactly what we needed on time and within budget. Highly recommended!"
+        },
+        {
+            client: "TechFlow",
+            rating: 4,
+            date: "2025-01-10",
+            text: "Great communication and creative design. Would work with again."
+        }
+    ];
+    
+    const reviewsContainer = document.getElementById('reviews-container');
+    reviewsContainer.innerHTML = reviews.map(review => `
+        <div class="review-item">
+            <div class="review-header">
+                <div>
+                    <strong>${review.client}</strong>
+                    <div class="review-rating">${'⭐'.repeat(review.rating)}</div>
+                </div>
+                <div class="review-date">${review.date}</div>
+            </div>
+            <div class="review-text">${review.text}</div>
+        </div>
+    `).join('');
+}
+</script> 

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="gigs.css">
+<div class="container">
+    <h1 class="view-title">Gig Marketplace</h1>
+    <p>Find your next opportunity. All listings are verified for fair pay and legitimacy.</p>
+
+     <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="../../index.html">
+          <svg class="nav-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          NextGig
+        </a>
+      </div>
+      <div class="nav-menu">
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="gigs.html" class="nav-link">Browse Gigs</a>
+        <a href="applications.html" class="nav-link">My Applications</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+        <a href="gigs.html" class="nav-link active">Browse Gigs</a>
+      </div>
+      <div class="nav-toggle" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Filters -->
+    <div class="filters">
+        <input type="text" placeholder="Search by keyword (e.g., 'Web Developer', 'Plumber')">
+        <select>
+            <option value="">All Categories</option>
+            <option value="tech">Tech & IT</option>
+            <option value="creative">Creative & Design</option>
+            <option value="trades">Skilled Trades</option>
+            <option value="writing">Writing & Translation</option>
+            <option value="business">Business & Admin</option>
+        </select>
+        <select>
+            <option value="">All Locations</option>
+            <option value="remote">Remote</option>
+            <option value="ny">New York, NY</option>
+            <option value="sf">San Francisco, CA</option>
+        </select>
+        <button class="btn btn-primary">Search</button>
+    </div>
+
+    <!-- Gig Listings -->
+    <div class="gig-list">
+        <div class="card">
+            <h4>Full-Stack Web Developer for E-commerce Site</h4>
+            <p><strong>Company:</strong> ShopLocal Inc. <span style="color: var(--success-color); font-weight: 500;">(Verified)</span></p>
+            <p><strong>Skills:</strong> React, Node.js, Firebase, Stripe API</p>
+            <div class="card-footer">
+                <span class="gig-location">📍 Remote</span>
+                <span class="gig-pay">$75 / hour</span>
+                <a href="apply.html?jobTitle=Full-Stack%20Web%20Developer%20for%20E-commerce%20Site" class="btn btn-primary">Apply Now</a>
+                <a href="gig-details.html?jobTitle=Full-Stack%20Web%20Developer%20for%20E-commerce%20Site" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <h4>Licensed Electrician for Small Business Retrofit</h4>
+            <p><strong>Company:</strong> Main Street Bakery <span style="color: var(--success-color); font-weight: 500;">(Verified)</span></p>
+            <p><strong>Skills:</strong> Commercial Wiring, Conduit Bending, Safety Compliance</p>
+            <div class="card-footer">
+                <span class="gig-location">📍 New York, NY</span>
+                <span class="gig-pay">$60 / hour</span>
+                <a href="apply.html?jobTitle=Licensed%20Electrician%20for%20Small%20Business%20Retrofit" class="btn btn-primary">Apply Now</a>
+                <a href="gig-details.html?jobTitle=Licensed%20Electrician%20for%20Small%20Business%20Retrofit" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <h4>Graphic Designer for Social Media Campaign</h4>
+            <p><strong>Company:</strong> Growth Marketing Co.</p>
+            <p><strong>Skills:</strong> Adobe Creative Suite, Canva, Branding</p>
+            <div class="card-footer">
+                <span class="gig-location">📍 Remote</span>
+                <span class="gig-pay">$1,500 (Project Fee)</span>
+                <a href="apply.html?jobTitle=Graphic%20Designer%20for%20Social%20Media%20Campaign" class="btn btn-primary">Apply Now</a>
+                <a href="gig-details.html?jobTitle=Graphic%20Designer%20for%20Social%20Media%20Campaign" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <h4>Remote Customer Support Specialist</h4>
+            <p><strong>Company:</strong> HelpDeskPro</p>
+            <p><strong>Skills:</strong> Customer Service, Communication, CRM Tools</p>
+            <div class="card-footer">
+                <span class="gig-location">📍 Remote</span>
+                <span class="gig-pay">$22 / hour</span>
+                <a href="apply.html?jobTitle=Remote%20Customer%20Support%20Specialist" class="btn btn-primary">Apply Now</a>
+                <a href="gig-details.html?jobTitle=Remote%20Customer%20Support%20Specialist" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <h4>Content Writer for Tech Blog</h4>
+            <p><strong>Company:</strong> TechTalk Media</p>
+            <p><strong>Skills:</strong> Blogging, SEO, Technical Writing</p>
+            <div class="card-footer">
+                <span class="gig-location">📍 Remote</span>
+                <span class="gig-pay">$120 per article</span>
+                <a href="apply.html?jobTitle=Content%20Writer%20for%20Tech%20Blog" class="btn btn-primary">Apply Now</a>
+                <a href="gig-details.html?jobTitle=Content%20Writer%20for%20Tech%20Blog" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <h4>Mobile App Tester (Freelance)</h4>
+            <p><strong>Company:</strong> AppQuality Labs</p>
+            <p><strong>Skills:</strong> QA Testing, Android/iOS, Bug Reporting</p>
+            <div class="card-footer">
+                <span class="gig-location">📍 Remote</span>
+                <span class="gig-pay">$30 / hour</span>
+                <a href="apply.html?jobTitle=Mobile%20App%20Tester%20(Freelance)" class="btn btn-primary">Apply Now</a>
+                <a href="gig-details.html?jobTitle=Mobile%20App%20Tester%20(Freelance)" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <h4>Administrative Assistant (Part-Time)</h4>
+            <p><strong>Company:</strong> OfficeEase Solutions</p>
+            <p><strong>Skills:</strong> Scheduling, Data Entry, Microsoft Office</p>
+            <div class="card-footer">
+                <span class="gig-location">📍 San Francisco, CA</span>
+                <span class="gig-pay">$28 / hour</span>
+                <a href="apply.html?jobTitle=Administrative%20Assistant%20(Part-Time)" class="btn btn-primary">Apply Now</a>
+                <a href="gig-details.html?jobTitle=Administrative%20Assistant%20(Part-Time)" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+        <div class="card">
+            <h4>Freelance Video Editor</h4>
+            <p><strong>Company:</strong> Visionary Media</p>
+            <p><strong>Skills:</strong> Adobe Premiere, Final Cut, Storytelling</p>
+            <div class="card-footer">
+                <span class="gig-location">📍 Remote</span>
+                <span class="gig-pay">$500 per project</span>
+                <a href="apply.html?jobTitle=Freelance%20Video%20Editor" class="btn btn-primary">Apply Now</a>
+                <a href="gig-details.html?jobTitle=Freelance%20Video%20Editor" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+    </div>
+    <div class="view-more-container">
+        <a href="more-gigs.html" class="btn btn-primary btn-large">View More Jobs</a>
+    </div>
+</div>

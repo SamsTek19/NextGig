@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="skill-hub.css">
+<div class="container">
+    <h1 class="view-title">Skill Hub</h1>
+    <p>Discover courses and resources to level up your skills in tech, trades, and entrepreneurship.</p>
+
+    <!-- Course Categories -->
+    <div class="categories-section">
+        <h3>Browse by Category</h3>
+        <div class="category-tabs">
+            <button class="category-tab active" data-category="all">All Courses</button>
+            <button class="category-tab" data-category="tech">Tech & IT</button>
+            <button class="category-tab" data-category="trades">Skilled Trades</button>
+            <button class="category-tab" data-category="business">Business & Entrepreneurship</button>
+            <button class="category-tab" data-category="creative">Creative & Design</button>
+        </div>
+    </div>
+
+    <!-- Featured Courses -->
+    <div class="featured-courses">
+        <h3>Featured Courses</h3>
+        <div class="courses-grid" id="courses-grid">
+            <!-- Courses will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Learning Paths -->
+    <div class="learning-paths">
+        <h3>Learning Paths</h3>
+        <div class="paths-grid">
+            <div class="path-card">
+                <div class="path-icon">🚀</div>
+                <h4>Web Development Career</h4>
+                <p>From beginner to full-stack developer</p>
+                <div class="path-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%"></div>
+                    </div>
+                    <span>3 of 5 courses completed</span>
+                </div>
+                <button class="btn btn-primary">Continue Path</button>
+            </div>
+            <div class="path-card">
+                <div class="path-icon">⚡</div>
+                <h4>Electrical Trade</h4>
+                <p>Licensed electrician certification</p>
+                <div class="path-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 25%"></div>
+                    </div>
+                    <span>1 of 4 courses completed</span>
+                </div>
+                <button class="btn btn-primary">Continue Path</button>
+            </div>
+            <div class="path-card">
+                <div class="path-icon">💼</div>
+                <h4>Small Business Owner</h4>
+                <p>Launch and grow your business</p>
+                <div class="path-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%"></div>
+                    </div>
+                    <span>4 of 5 courses completed</span>
+                </div>
+                <button class="btn btn-primary">Continue Path</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Free Resources -->
+    <div class="free-resources">
+        <h3>Free Learning Resources</h3>
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-icon">📚</div>
+                <h4>Digital Marketing Basics</h4>
+                <p>Learn the fundamentals of online marketing</p>
+                <span class="resource-type">Free Course</span>
+                <button class="btn btn-outline">Start Learning</button>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">🎨</div>
+                <h4>Graphic Design Fundamentals</h4>
+                <p>Master the basics of visual design</p>
+                <span class="resource-type">Free Course</span>
+                <button class="btn btn-outline">Start Learning</button>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon">📊</div>
+                <h4>Financial Literacy</h4>
+                <p>Manage your money and plan for the future</p>
+                <span class="resource-type">Free Workshop</span>
+                <button class="btn btn-outline">Join Workshop</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.categories-section {
+    margin-bottom: 2rem;
+}
+
+.category-tabs {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.category-tab {
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 25px;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.category-tab:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.category-tab.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.featured-courses {
+    margin-bottom: 3rem;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.course-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.course-image {
+    height: 200px;
+    background: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.course-content {
+    padding: 1.5rem;
+}
+
+.course-content h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-dark);
+}
+
+.course-content p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.course-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.course-price {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.course-duration {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.course-level {
+    display: inline-block;
+    background: var(--light-bg);
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.learning-paths {
+    margin-bottom: 3rem;
+}
+
+.paths-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.path-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.path-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.path-card h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-dark);
+}
+
+.path-card p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.path-progress {
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.path-progress span {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.free-resources {
+    margin-bottom: 2rem;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.resource-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.resource-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.resource-card h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-dark);
+}
+
+.resource-card p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.resource-type {
+    display: inline-block;
+    background: var(--success-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .category-tabs {
+        justify-content: center;
+    }
+    
+    .courses-grid,
+    .paths-grid,
+    .resources-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<script>
+// Skill Hub functionality
+document.addEventListener('DOMContentLoaded', function() {
+    loadCourses();
+    setupCategoryTabs();
+});
+
+function loadCourses() {
+    const courses = [
+        {
+            title: "Complete Web Development Bootcamp",
+            description: "Learn HTML, CSS, JavaScript, React, and Node.js from scratch",
+            price: "$299",
+            duration: "40 hours",
+            level: "Beginner",
+            category: "tech",
+            icon: "💻"
+        },
+        {
+            title: "Electrical Safety & Code Compliance",
+            description: "Master electrical safety standards and building codes",
+            price: "$199",
+            duration: "25 hours",
+            level: "Intermediate",
+            category: "trades",
+            icon: "⚡"
+        },
+        {
+            title: "Business Plan Development",
+            description: "Create a comprehensive business plan for your startup",
+            price: "$149",
+            duration: "15 hours",
+            level: "Beginner",
+            category: "business",
+            icon: "📋"
+        },
+        {
+            title: "UI/UX Design Fundamentals",
+            description: "Learn user interface and user experience design principles",
+            price: "$249",
+            duration: "30 hours",
+            level: "Intermediate",
+            category: "creative",
+            icon: "🎨"
+        },
+        {
+            title: "Plumbing Systems & Installation",
+            description: "Comprehensive guide to residential and commercial plumbing",
+            price: "$179",
+            duration: "35 hours",
+            level: "Intermediate",
+            category: "trades",
+            icon: "🔧"
+        },
+        {
+            title: "Digital Marketing Strategy",
+            description: "Develop effective marketing campaigns for your business",
+            price: "$199",
+            duration: "20 hours",
+            level: "Intermediate",
+            category: "business",
+            icon: "📈"
+        }
+    ];
+    
+    const coursesGrid = document.getElementById('courses-grid');
+    coursesGrid.innerHTML = courses.map(course => `
+        <div class="course-card" data-category="${course.category}">
+            <div class="course-image">${course.icon}</div>
+            <div class="course-content">
+                <h4>${course.title}</h4>
+                <p>${course.description}</p>
+                <div class="course-meta">
+                    <span class="course-price">${course.price}</span>
+                    <span class="course-duration">${course.duration}</span>
+                </div>
+                <div class="course-level">${course.level}</div>
+                <button class="btn btn-primary">Enroll Now</button>
+            </div>
+        </div>
+    `).join('');
+}
+
+function setupCategoryTabs() {
+    const tabs = document.querySelectorAll('.category-tab');
+    const courseCards = document.querySelectorAll('.course-card');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active class from all tabs
+            tabs.forEach(t => t.classList.remove('active'));
+            // Add active class to clicked tab
+            tab.classList.add('active');
+            
+            const category = tab.dataset.category;
+            
+            // Show/hide course cards based on category
+            courseCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+}
+</script> 

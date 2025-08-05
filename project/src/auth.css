@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F0F8FF;
+    color: #1C1C1C;
+  }
+  
+  .container.form-container {
+    max-width: 400px;
+    margin: 5rem auto;
+    padding: 2rem;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding-top: 90px;
+  }
+  
+  .view-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #007BFF;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  
+  input:focus, select:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+  
+  .password-group {
+    position: relative;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .btn-primary {
+    background-color: #007BFF;
+    color: #FFFFFF;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056D2;
+  }
+  
+  .btn-block {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .auth-toggle {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  .auth-toggle p {
+    font-size: 0.95rem;
+  }
+  
+  .auth-toggle button {
+    background: none;
+    border: none;
+    color: #007BFF;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-left: 0.3rem;
+  }
+  
+  .auth-toggle button:hover {
+    text-decoration: underline;
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+/* Auth Page Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e3f2fd;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.nav-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+}
+
+.nav-brand a {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #007BFF;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-brand a:hover {
+  color: #0056b3;
+}
+
+.nav-logo {
+  width: 32px;
+  height: 32px;
+  color: #007BFF;
+  transition: color 0.3s ease;
+}
+
+.nav-brand a:hover .nav-logo {
+  color: #0056b3;
+}

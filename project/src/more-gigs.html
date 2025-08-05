@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>More Gigs | NextGig</title>
+  <link rel="stylesheet" href="gigs.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="view-title">More Gigs</h1>
+    <p>Explore even more verified opportunities below.</p>
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <a href="../../index.html">
+            <svg class="nav-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            NextGig
+          </a>
+        </div>
+        <div class="nav-menu">
+          <a href="dashboard.html" class="nav-link">Dashboard</a>
+          <a href="gigs.html" class="nav-link">Browse Gigs</a>
+          <a href="applications.html" class="nav-link">My Applications</a>
+          <a href="profile.html" class="nav-link">Profile</a>
+          <a href="more-gigs.html" class="nav-link active">More Gigs</a>
+        </div>
+        <div class="nav-toggle" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+    <!-- Gig Listings -->
+    <div class="gig-list">
+      <div class="card">
+        <h4>Remote Data Entry Specialist</h4>
+        <p><strong>Company:</strong> DataFlow Solutions</p>
+        <p><strong>Skills:</strong> Data Entry, Excel, Attention to Detail</p>
+        <div class="card-footer">
+          <span class="gig-location">📍 Remote</span>
+          <span class="gig-pay">$18 / hour</span>
+          <a href="apply.html?jobTitle=Remote%20Data%20Entry%20Specialist" class="btn btn-primary">Apply Now</a>
+          <a href="gig-details.html?jobTitle=Remote%20Data%20Entry%20Specialist" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+      <div class="card">
+        <h4>Junior Frontend Developer</h4>
+        <p><strong>Company:</strong> PixelWorks Studio</p>
+        <p><strong>Skills:</strong> HTML, CSS, JavaScript, Responsive Design</p>
+        <div class="card-footer">
+          <span class="gig-location">📍 Remote</span>
+          <span class="gig-pay">$35 / hour</span>
+          <a href="apply.html?jobTitle=Junior%20Frontend%20Developer" class="btn btn-primary">Apply Now</a>
+          <a href="gig-details.html?jobTitle=Junior%20Frontend%20Developer" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+      <div class="card">
+        <h4>Bookkeeper (Part-Time)</h4>
+        <p><strong>Company:</strong> GreenLeaf Accounting</p>
+        <p><strong>Skills:</strong> QuickBooks, Invoicing, Financial Reporting</p>
+        <div class="card-footer">
+          <span class="gig-location">📍 Remote</span>
+          <span class="gig-pay">$25 / hour</span>
+          <a href="apply.html?jobTitle=Bookkeeper%20(Part-Time)" class="btn btn-primary">Apply Now</a>
+          <a href="gig-details.html?jobTitle=Bookkeeper%20(Part-Time)" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+      <div class="card">
+        <h4>Warehouse Assistant</h4>
+        <p><strong>Company:</strong> FastShip Logistics</p>
+        <p><strong>Skills:</strong> Inventory, Packing, Forklift Operation</p>
+        <div class="card-footer">
+          <span class="gig-location">📍 Dallas, TX</span>
+          <span class="gig-pay">$20 / hour</span>
+          <a href="apply.html?jobTitle=Warehouse%20Assistant" class="btn btn-primary">Apply Now</a>
+          <a href="gig-details.html?jobTitle=Warehouse%20Assistant" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+      <div class="card">
+        <h4>Remote Social Media Manager</h4>
+        <p><strong>Company:</strong> SocialBuzz Agency</p>
+        <p><strong>Skills:</strong> Social Media, Content Creation, Analytics</p>
+        <div class="card-footer">
+          <span class="gig-location">📍 Remote</span>
+          <span class="gig-pay">$40 / hour</span>
+          <a href="apply.html?jobTitle=Remote%20Social%20Media%20Manager" class="btn btn-primary">Apply Now</a>
+          <a href="gig-details.html?jobTitle=Remote%20Social%20Media%20Manager" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+      <div class="card">
+        <h4>Onsite Plumber</h4>
+        <p><strong>Company:</strong> PipePros</p>
+        <p><strong>Skills:</strong> Plumbing, Pipe Fitting, Repairs</p>
+        <div class="card-footer">
+          <span class="gig-location">📍 Chicago, IL</span>
+          <span class="gig-pay">$55 / hour</span>
+          <a href="apply.html?jobTitle=Onsite%20Plumber" class="btn btn-primary">Apply Now</a>
+          <a href="gig-details.html?jobTitle=Onsite%20Plumber" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+      <div class="card">
+        <h4>Remote UX Researcher</h4>
+        <p><strong>Company:</strong> Insightful Labs</p>
+        <p><strong>Skills:</strong> User Interviews, Usability Testing, Research Reports</p>
+        <div class="card-footer">
+          <span class="gig-location">📍 Remote</span>
+          <span class="gig-pay">$50 / hour</span>
+          <a href="apply.html?jobTitle=Remote%20UX%20Researcher" class="btn btn-primary">Apply Now</a>
+          <a href="gig-details.html?jobTitle=Remote%20UX%20Researcher" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+      <div class="card">
+        <h4>Event Photographer</h4>
+        <p><strong>Company:</strong> SnapShot Events</p>
+        <p><strong>Skills:</strong> Photography, Editing, Event Coverage</p>
+        <div class="card-footer">
+          <span class="gig-location">📍 Atlanta, GA</span>
+          <span class="gig-pay">$400 per event</span>
+          <a href="apply.html?jobTitle=Event%20Photographer" class="btn btn-primary">Apply Now</a>
+          <a href="gig-details.html?jobTitle=Event%20Photographer" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+    </div>
+    <div class="view-more-container">
+      <a href="gigs.html" class="btn btn-primary btn-large">Back to Main Gigs</a>
+    </div>
+  </div>
+</body>
+</html>

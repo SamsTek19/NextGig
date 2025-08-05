@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="apply.css">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply for Job | NextGig</title>
+  <link rel="stylesheet" href="apply.css" />
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="../../index.html">
+          <svg class="nav-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          NextGig
+        </a>
+      </div>
+      <div class="nav-menu">
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="gigs.html" class="nav-link">Browse Gigs</a>
+        <a href="applications.html" class="nav-link">My Applications</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+        <a href="dashboard.html" class="nav-link active">Home</a>
+      </div>
+      <div class="nav-toggle" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div class="container">
+      <h1 class="view-title">Apply for Job</h1>
+      <form id="job-application-form">
+        <div class="form-group">
+          <label for="full-name">Full Name</label>
+          <input type="text" id="full-name" name="full-name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+        <div class="form-group">
+          <label for="cover-letter">Cover Letter</label>
+          <textarea id="cover-letter" name="cover-letter" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Application</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Firebase v9+ Modular SDK via CDN -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+    import { getFirestore, addDoc, collection } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+    
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyD37yUXsB6Pk8VrTIog7TiR1L_OPZO5SRA",
+      authDomain: "nextgig-5ab10.firebaseapp.com",
+      projectId: "nextgig-5ab10",
+      storageBucket: "nextgig-5ab10.firebasestorage.app",
+      messagingSenderId: "604733323193",
+      appId: "1:604733323193:web:da71409d9182b63cace868",
+      measurementId: "G-13FM6RXNW2"
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+    
+    // Initialize the application form
+    document.addEventListener('DOMContentLoaded', function() {
+      const applicationForm = document.getElementById('job-application-form');
+      if (applicationForm) {
+        applicationForm.addEventListener('submit', handleApplicationSubmit);
+      }
+    });
+
+    async function handleApplicationSubmit(event) {
+      event.preventDefault();
+      const submitButton = event.target.querySelector('button[type="submit"]');
+      const originalText = submitButton.textContent;
+      submitButton.textContent = 'Submitting...';
+      submitButton.disabled = true;
+      try {
+        // Get form data
+        const formData = new FormData(event.target);
+        const applicationData = {
+          fullName: formData.get('full-name'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          coverLetter: formData.get('cover-letter'),
+          jobTitle: getJobTitleFromURL(),
+          appliedAt: new Date().toISOString(),
+          status: 'pending'
+        };
+        // Save application data to Firestore
+        const applicationId = await saveApplicationToFirestore(applicationData);
+        // Save to local storage for "My Applications" page
+        saveApplicationToLocalStorage({
+          id: applicationId,
+          ...applicationData
+        });
+        showNotification('Application submitted successfully!', 'success');
+        event.target.reset();
+        setTimeout(() => {
+          window.location.href = 'applications.html';
+        }, 2000);
+      } catch (error) {
+        console.error('Error submitting application:', error);
+        showNotification('Error submitting application. Please try again.', 'error');
+      } finally {
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+      }
+    }
+
+    async function saveApplicationToFirestore(applicationData) {
+      try {
+        // Get current user if authenticated
+        const currentUser = auth.currentUser;
+        const userId = currentUser ? currentUser.uid : null;
+        // Add user information to application data
+        const applicationWithUser = {
+          ...applicationData,
+          userId: userId,
+          userName: currentUser ? currentUser.displayName : applicationData.fullName,
+          userEmail: currentUser ? currentUser.email : applicationData.email
+        };
+        const docRef = await addDoc(collection(db, 'applications'), applicationWithUser);
+        return docRef.id;
+      } catch (error) {
+        console.error('Error saving to Firestore:', error);
+        throw new Error('Failed to save application data');
+      }
+    }
+
+    function saveApplicationToLocalStorage(applicationData) {
+      try {
+        let applications = JSON.parse(localStorage.getItem('userApplications') || '[]');
+        applications.push(applicationData);
+        localStorage.setItem('userApplications', JSON.stringify(applications));
+      } catch (error) {
+        console.error('Error saving to localStorage:', error);
+      }
+    }
+
+    function getJobTitleFromURL() {
+      // Extract job title from URL parameters or use a default
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('jobTitle') || 'Remote Position';
+    }
+
+    function showNotification(message, type = 'info') {
+      // Create notification element
+      const notification = document.createElement('div');
+      notification.className = `notification notification-${type}`;
+      notification.textContent = message;
+      notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        border-radius: 5px;
+        color: white;
+        font-weight: 500;
+        z-index: 1000;
+        animation: slideIn 0.3s ease-out;
+        ${type === 'success' ? 'background-color: #10b981;' : 'background-color: #ef4444;'}
+      `;
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes slideIn {
+          from { transform: translateX(100%); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+      `;
+      document.head.appendChild(style);
+      document.body.appendChild(notification);
+      setTimeout(() => {
+        notification.remove();
+      }, 5000);
+    }
+  </script>
+</body>
+</html> 

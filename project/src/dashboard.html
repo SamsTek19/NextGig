@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browse Jobs | NextGig</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="index.html">
+          <svg class="nav-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          NextGig
+        </a>
+      </div>
+      <div class="nav-menu">
+        <a href="#dashboard" class="nav-link active">Dashboard</a>
+        <a href="applications.html" class="nav-link">My Applications</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+        <div class="nav-auth">
+          <div class="user-menu">
+            <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop" alt="User Avatar" class="user-avatar" />
+            <span class="user-name">John Doe</span>
+            <a href="auth.html" class="nav-link logout">Logout</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-toggle" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <!-- SEARCH AND FILTERS -->
+    <section class="search-section">
+      <div class="container">
+        <div class="search-header">
+          <h1>Find Your Perfect Remote Job</h1>
+          <p>Discover verified remote opportunities that match your skills and values</p>
+        </div>
+        
+        <div class="search-bar">
+          <div class="search-input-group">
+            <input type="text" placeholder="Search jobs, skills, or companies..." class="search-input" />
+            <button class="search-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="filters">
+          <select class="filter-select">
+            <option value="">All Categories</option>
+            <option value="tech">Technology</option>
+            <option value="design">Design</option>
+            <option value="marketing">Marketing</option>
+            <option value="writing">Writing</option>
+            <option value="customer-service">Customer Service</option>
+          </select>
+          
+          <select class="filter-select">
+            <option value="">Job Type</option>
+            <option value="full-time">Full Time</option>
+            <option value="part-time">Part Time</option>
+            <option value="contract">Contract</option>
+            <option value="freelance">Freelance</option>
+          </select>
+          
+          <select class="filter-select">
+            <option value="">Experience Level</option>
+            <option value="entry">Entry Level</option>
+            <option value="mid">Mid Level</option>
+            <option value="senior">Senior Level</option>
+          </select>
+          
+          <button class="filter-btn">Apply Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOB LISTINGS -->
+    <section class="jobs-section">
+      <div class="container">
+        <div class="jobs-header">
+          <h2>Available Remote Jobs</h2>
+          <div class="jobs-count">Showing 24 of 156 jobs</div>
+        </div>
+
+        <div class="jobs-grid">
+          <!-- Job Card 1 -->
+          <div class="job-card">
+            <div class="job-header">
+              <div class="company-logo">
+                <img src="https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop" alt="TechCorp" />
+              </div>
+              <div class="job-info">
+                <h3>Senior Frontend Developer</h3>
+                <p class="company-name">TechCorp Solutions</p>
+                <div class="job-meta">
+                  <span class="job-type">Full Time</span>
+                  <span class="job-location">Remote</span>
+                  <span class="job-salary">$80k - $120k</span>
+                </div>
+              </div>
+              <div class="job-actions">
+                <button class="save-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="job-description">
+              <p>We're looking for an experienced Frontend Developer to join our remote team. You'll work on cutting-edge web applications using React, TypeScript, and modern development tools.</p>
+            </div>
+            <div class="job-skills">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">CSS</span>
+              <span class="skill-tag">Node.js</span>
+            </div>
+            <div class="job-footer">
+              <span class="job-posted">Posted 2 days ago</span>
+              <a href="apply.html" class="btn btn-primary">Apply Now</a>
+            </div>
+          </div>
+
+          <!-- Job Card 2 -->
+          <div class="job-card">
+            <div class="job-header">
+              <div class="company-logo">
+                <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop" alt="DesignStudio" />
+              </div>
+              <div class="job-info">
+                <h3>UX/UI Designer</h3>
+                <p class="company-name">Creative Design Studio</p>
+                <div class="job-meta">
+                  <span class="job-type">Contract</span>
+                  <span class="job-location">Remote</span>
+                  <span class="job-salary">$60 - $80/hr</span>
+                </div>
+              </div>
+              <div class="job-actions">
+                <button class="save-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="job-description">
+              <p>Join our creative team to design beautiful, user-centered digital experiences. We're seeking a talented designer with expertise in modern design tools and methodologies.</p>
+            </div>
+            <div class="job-skills">
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">Adobe XD</span>
+              <span class="skill-tag">Prototyping</span>
+              <span class="skill-tag">User Research</span>
+            </div>
+            <div class="job-footer">
+              <span class="job-posted">Posted 1 day ago</span>
+              <a href="apply.html" class="btn btn-primary">Apply Now</a>
+            </div>
+          </div>
+
+          <!-- Job Card 3 -->
+          <div class="job-card">
+            <div class="job-header">
+              <div class="company-logo">
+                <img src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop" alt="MarketingPro" />
+              </div>
+              <div class="job-info">
+                <h3>Digital Marketing Specialist</h3>
+                <p class="company-name">MarketingPro Agency</p>
+                <div class="job-meta">
+                  <span class="job-type">Part Time</span>
+                  <span class="job-location">Remote</span>
+                  <span class="job-salary">$40k - $60k</span>
+                </div>
+              </div>
+              <div class="job-actions">
+                <button class="save-btn saved">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
+                    <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="job-description">
+              <p>Drive digital marketing campaigns across multiple channels. Perfect opportunity for someone passionate about data-driven marketing and creative strategy.</p>
+            </div>
+            <div class="job-skills">
+              <span class="skill-tag">Google Ads</span>
+              <span class="skill-tag">SEO</span>
+              <span class="skill-tag">Analytics</span>
+              <span class="skill-tag">Social Media</span>
+            </div>
+            <div class="job-footer">
+              <span class="job-posted">Posted 3 days ago</span>
+              <a href="apply.html" class="btn btn-primary">Apply Now</a>
+            </div>
+          </div>
+
+          <!-- Job Card 4 -->
+          <div class="job-card">
+            <div class="job-header">
+              <div class="company-logo">
+                <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop" alt="ContentCorp" />
+              </div>
+              <div class="job-info">
+                <h3>Content Writer</h3>
+                <p class="company-name">ContentCorp</p>
+                <div class="job-meta">
+                  <span class="job-type">Freelance</span>
+                  <span class="job-location">Remote</span>
+                  <span class="job-salary">$25 - $40/hr</span>
+                </div>
+              </div>
+              <div class="job-actions">
+                <button class="save-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="job-description">
+              <p>Create engaging content for various digital platforms. We're looking for a creative writer who can adapt their voice to different brands and audiences.</p>
+            </div>
+            <div class="job-skills">
+              <span class="skill-tag">Copywriting</span>
+              <span class="skill-tag">SEO Writing</span>
+              <span class="skill-tag">Research</span>
+              <span class="skill-tag">WordPress</span>
+            </div>
+            <div class="job-footer">
+              <span class="job-posted">Posted 5 days ago</span>
+              <a href="apply.html" class="btn btn-primary">Apply Now</a>
+            </div>
+          </div>
+
+          <!-- Job Card 5 -->
+          <div class="job-card">
+            <div class="job-header">
+              <div class="company-logo">
+                <img src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop" alt="SupportTech" />
+              </div>
+              <div class="job-info">
+                <h3>Customer Success Manager</h3>
+                <p class="company-name">SupportTech Solutions</p>
+                <div class="job-meta">
+                  <span class="job-type">Full Time</span>
+                  <span class="job-location">Remote</span>
+                  <span class="job-salary">$50k - $70k</span>
+                </div>
+              </div>
+              <div class="job-actions">
+                <button class="save-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="job-description">
+              <p>Help our customers achieve success with our platform. You'll work directly with clients to ensure they get maximum value from our services.</p>
+            </div>
+            <div class="job-skills">
+              <span class="skill-tag">Customer Service</span>
+              <span class="skill-tag">CRM</span>
+              <span class="skill-tag">Communication</span>
+              <span class="skill-tag">Problem Solving</span>
+            </div>
+            <div class="job-footer">
+              <span class="job-posted">Posted 1 week ago</span>
+              <a href="apply.html" class="btn btn-primary">Apply Now</a>
+            </div>
+          </div>
+
+          <!-- Job Card 6 -->
+          <div class="job-card">
+            <div class="job-header">
+              <div class="company-logo">
+                <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop" alt="DataCorp" />
+              </div>
+              <div class="job-info">
+                <h3>Data Analyst</h3>
+                <p class="company-name">DataCorp Analytics</p>
+                <div class="job-meta">
+                  <span class="job-type">Full Time</span>
+                  <span class="job-location">Remote</span>
+                  <span class="job-salary">$65k - $85k</span>
+                </div>
+              </div>
+              <div class="job-actions">
+                <button class="save-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="job-description">
+              <p>Transform raw data into actionable insights. Join our analytics team to help businesses make data-driven decisions using modern tools and techniques.</p>
+            </div>
+            <div class="job-skills">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">Tableau</span>
+              <span class="skill-tag">Statistics</span>
+            </div>
+            <div class="job-footer">
+              <span class="job-posted">Posted 4 days ago</span>
+              <a href="apply.html" class="btn btn-primary">Apply Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pagination">
+          <button class="pagination-btn" onclick="goToPreviousPage()">Previous</button>
+          <span class="pagination-info">Page 1 of 7</span>
+          <button class="pagination-btn" onclick="goToNextPage()">Next</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>NextGig</h3>
+          <p>Empowering remote workers worldwide</p>
+        </div>
+        <nav class="footer-nav">
+          <div class="footer-column">
+            <h4>Platform</h4>
+            <a href="gigs.html">Browse Gigs</a>
+            <a href="skill-hub.html">Skill Hub</a>
+            <a href="business.html">Business Tools</a>
+          </div>
+          <div class="footer-column">
+            <h4>Support</h4>
+            <a href="rights.html">Worker Rights</a>
+            <a href="help.html">Help Center</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year">2025</span> NextGig. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Show user's name from localStorage
+    const userName = localStorage.getItem('userName');
+    if (userName) {
+      document.querySelector('.user-name').textContent = userName;
+    }
+
+    function toggleMobileMenu() {
+      const navbar = document.querySelector('.navbar');
+      navbar.classList.toggle('mobile-menu-active');
+    }
+
+    // Logout functionality
+    document.querySelector('.logout').addEventListener('click', function(e) {
+      e.preventDefault();
+      localStorage.removeItem('userName');
+      window.location.href = 'auth.html';
+    });
+
+    // Close mobile menu when clicking on links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.navbar').classList.remove('mobile-menu-active');
+      });
+    });
+
+    // Save job functionality
+    document.querySelectorAll('.save-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        this.classList.toggle('saved');
+        const svg = this.querySelector('svg');
+        if (this.classList.contains('saved')) {
+          svg.setAttribute('fill', 'currentColor');
+        } else {
+          svg.setAttribute('fill', 'none');
+        }
+      });
+    });
+
+    // Apply button functionality
+    document.querySelectorAll('.apply-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        alert('Application submitted! We will review your profile and get back to you soon.');
+      });
+    });
+
+    // Filter and search functionality
+    function filterJobs() {
+      const searchTerm = document.querySelector('.search-input').value.toLowerCase();
+      const category = document.querySelectorAll('.filter-select')[0].value;
+      const jobType = document.querySelectorAll('.filter-select')[1].value;
+      const experience = document.querySelectorAll('.filter-select')[2].value;
+      const jobCards = document.querySelectorAll('.job-card');
+      jobCards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const company = card.querySelector('.company-name').textContent.toLowerCase();
+        const meta = card.querySelector('.job-meta').textContent.toLowerCase();
+        let matches = true;
+        if (searchTerm && !(title.includes(searchTerm) || company.includes(searchTerm))) {
+          matches = false;
+        }
+        if (category && !meta.includes(category)) {
+          matches = false;
+        }
+        if (jobType && !meta.includes(jobType)) {
+          matches = false;
+        }
+        if (experience && !meta.includes(experience)) {
+          matches = false;
+        }
+        card.style.display = matches ? '' : 'none';
+      });
+    }
+
+    document.querySelector('.filter-btn').addEventListener('click', filterJobs);
+    document.querySelector('.search-btn').addEventListener('click', filterJobs);
+    document.querySelector('.search-input').addEventListener('keyup', function(e) {
+      if (e.key === 'Enter') filterJobs();
+    });
+
+    function goToNextPage() {
+      // Logic to go to next page, for now just go to page 7
+      window.location.href = 'gigs.html?page=7';
+    }
+    function goToPreviousPage() {
+      // Logic to go to previous page
+      window.location.href = 'gigs.html?page=1';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+
+  /* Navigation Styles */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e3f2fd;
+    z-index: 1000;
+    padding: 0 1rem;
+  }
+  
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+  }
+  
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .brand-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 700;
+    font-size: 1.8rem;
+    transition: color 0.3s ease;
+  }
+  
+  .brand-link:hover {
+    color: #0056b3;
+  }
+  
+  .nav-logo {
+    width: 32px;
+    height: 32px;
+    display: block;
+    transition: stroke 0.3s ease;
+  }
+  
+  .nav-menu {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    color: #475569;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    background-color: #e0f0ff;
+    color: #007bff;
+  }
+  
+  .nav-link[aria-current="page"] {
+    font-weight: 600;
+    color: #007bff;
+    background-color: #e0f0ff;
+  }
+  
+body { font-family: 'Roboto', sans-serif; background: #f8fcff; color: #1C1C1C; }
+.container { max-width: 900px; margin: 2rem auto; background: #fff; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.07); padding: 2rem; }
+.view-title { font-size: 2rem; font-weight: 700; color: #007BFF; margin-bottom: 1.5rem; }
+#edit-profile-form .form-group { margin-bottom: 1.2rem; }
+#edit-profile-form label { font-weight: 500; margin-bottom: 0.4rem; display: block; }
+#edit-profile-form input { width: 100%; padding: 0.7rem; border: 1px solid #cce0ff; border-radius: 6px; font-size: 1rem; margin-top: 0.2rem; }
+#edit-profile-form button { background: #007BFF; color: #fff; border: none; border-radius: 6px; padding: 0.8rem 1.5rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+#edit-profile-form button:hover { background: #0056b3; } 

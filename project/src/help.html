@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help Center | NextGig</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="help.css" />
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="../../index.html">
+          <svg class="nav-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          NextGig
+        </a>
+      </div>
+      <div class="nav-menu">
+        <a href="../../index.html" class="nav-link">Dashboard</a>
+        <a href="auth.html" class="nav-link">Browse Gigs</a>
+        <a href="help.html" class="nav-link active">Help Center</a>
+      </div>
+      <div class="nav-toggle" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <div class="container">
+      <h1 class="view-title">Help Center</h1>
+      <p class="help-subtitle">Find answers to common questions and get support for your NextGig experience.</p>
+      
+      <!-- Search Section -->
+      <div class="search-section">
+        <div class="search-box">
+          <input type="text" placeholder="Search for help topics..." class="search-input">
+          <button class="search-btn">🔍</button>
+        </div>
+      </div>
+
+      <!-- Help Categories -->
+      <div class="help-categories">
+        <div class="category-card">
+          <div class="category-icon">📋</div>
+          <h3>Getting Started</h3>
+          <p>Learn how to create your account, set up your profile, and find your first gig.</p>
+          <a href="#getting-started" class="category-link">View Topics →</a>
+        </div>
+        
+        <div class="category-card">
+          <div class="category-icon">💼</div>
+          <h3>Finding Gigs</h3>
+          <p>Discover how to search, filter, and apply for remote opportunities that match your skills.</p>
+          <a href="#finding-gigs" class="category-link">View Topics →</a>
+        </div>
+        
+        <div class="category-card">
+          <div class="category-icon">💰</div>
+          <h3>Payments & Billing</h3>
+          <p>Understand how payments work, invoicing, and managing your earnings.</p>
+          <a href="#payments" class="category-link">View Topics →</a>
+        </div>
+        
+        <div class="category-card">
+          <div class="category-icon">🛡️</div>
+          <h3>Safety & Rights</h3>
+          <p>Learn about worker protections, dispute resolution, and your rights as a remote worker.</p>
+          <a href="#safety" class="category-link">View Topics →</a>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <h4>How do I verify my account?</h4>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>To verify your account, you'll need to provide a valid government ID and complete our verification process. This helps ensure a safe environment for all users.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <h4>What happens if I have a dispute with a client?</h4>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>NextGig provides dispute resolution services. Contact our support team within 48 hours of the issue, and we'll help mediate the situation fairly.</p>
+            </div>
+          </div>
+          
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <h4>How do I access the Skill Hub courses?</h4>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <p>Skill Hub courses are available in your dashboard. Free courses are accessible immediately, while premium courses require a subscription or individual purchase.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Support -->
+      <div class="contact-support">
+        <h2>Still Need Help?</h2>
+        <p>Our support team is here to help you succeed.</p>
+        <div class="support-options">
+          <a href="mailto:support@nextgig.com" class="support-btn">
+            <span class="support-icon">📧</span>
+            Email Support
+          </a>
+          <a href="#" class="support-btn">
+            <span class="support-icon">💬</span>
+            Live Chat
+          </a>
+          <a href="#" class="support-btn">
+            <span class="support-icon">📞</span>
+            Call Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function toggleMobileMenu() {
+      const navbar = document.querySelector('.navbar');
+      navbar.classList.toggle('mobile-menu-active');
+    }
+
+    function toggleFAQ(element) {
+      const faqItem = element.parentElement;
+      const answer = faqItem.querySelector('.faq-answer');
+      const toggle = element.querySelector('.faq-toggle');
+      
+      faqItem.classList.toggle('active');
+      
+      if (faqItem.classList.contains('active')) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        toggle.textContent = '−';
+      } else {
+        answer.style.maxHeight = '0';
+        toggle.textContent = '+';
+      }
+    }
+
+    // Close mobile menu when clicking on links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.navbar').classList.remove('mobile-menu-active');
+      });
+    });
+  </script>
+</body>
+</html> 

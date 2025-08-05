@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="NextGig Authentication - Sign In or Create an Account" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NextGig | Authentication</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <a href="#signup" id="logo-link">
+          <svg class="nav-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          NextGig
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="container form-container">
+    <!-- Login Form -->
+    <div id="login-view">
+      <form id="login-form">
+        <h2 class="view-title">Login to NextGig</h2>
+        <div class="form-group">
+          <label for="login-email">Email Address</label>
+          <input type="email" id="login-email" name="email" placeholder="samsTek@gmail.com" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <div class="password-group">
+            <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
+            <button type="button" class="toggle-password" onclick="togglePassword('login-password')">👁️</button>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+      </form>
+      <div class="auth-toggle">
+        <p>Don't have an account? <button type="button">Sign Up</button></p>
+      </div>
+    </div>
+
+    <!-- Signup Form -->
+    <div id="signup-view" class="hidden">
+      <form id="signup-form">
+        <h2 class="view-title">Create Your Account</h2>
+        <div class="form-group">
+          <label for="signup-name">Full Name</label>
+          <input type="text" id="signup-name" name="name" placeholder="Samuel Agyei Sarfo" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-email">Email Address</label>
+          <input type="email" id="signup-email" name="email" placeholder="samskay@gmail.com" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-password">Password (min. 6 characters)</label>
+          <div class="password-group">
+            <input type="password" id="signup-password" name="password" placeholder="Create a strong password" required minlength="6">
+            <button type="button" class="toggle-password" onclick="togglePassword('signup-password')">👁️</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="signup-role">I am a...</label>
+          <select id="signup-role" name="role" required>
+            <option value="freelancer">Freelancer / Job Seeker</option>
+            <option value="business">Small Business / Employer</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+      </form>
+      <div class="auth-toggle">
+        <p>Already have an account? <button type="button">Login</button></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    document.querySelectorAll('.auth-toggle button').forEach(button => {
+      button.addEventListener('click', () => {
+        document.getElementById('login-view').classList.toggle('hidden');
+        document.getElementById('signup-view').classList.toggle('hidden');
+      });
+    });
+
+    function togglePassword(id) {
+      const input = document.getElementById(id);
+      input.type = input.type === "password" ? "text" : "password";
+    }
+
+    function validateEmail(email) {
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return regex.test(email);
+    }
+
+    // Add event listener to logo to show signup form
+    document.getElementById('logo-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('login-view').classList.add('hidden');
+      document.getElementById('signup-view').classList.remove('hidden');
+    });
+  </script>
+
+  <!-- Firebase v9+ Modular SDK via CDN -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyD37yUXsB6Pk8VrTIog7TiR1L_OPZO5SRA",
+      authDomain: "nextgig-5ab10.firebaseapp.com",
+      projectId: "nextgig-5ab10",
+      storageBucket: "nextgig-5ab10.firebasestorage.app",
+      messagingSenderId: "604733323193",
+      appId: "1:604733323193:web:da71409d9182b63cace868",
+      measurementId: "G-13FM6RXNW2"
+    };
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Login handler
+    document.getElementById('login-form').addEventListener('submit', async function(event) {
+      event.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value.trim();
+      if (!email || !password) {
+        alert("Please enter both email and password.");
+        return;
+      }
+      if (!validateEmail(email)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        let userName = user.displayName || email.split('@')[0];
+        localStorage.setItem('userName', userName);
+        window.location.href = 'dashboard.html';
+      } catch (error) {
+        alert(error.message);
+      }
+    });
+
+    // Signup handler
+    document.getElementById('signup-form').addEventListener('submit', async function(event) {
+      event.preventDefault();
+      const name = document.getElementById('signup-name').value.trim();
+      const email = document.getElementById('signup-email').value.trim();
+      const password = document.getElementById('signup-password').value.trim();
+      const role = document.getElementById('signup-role').value;
+      if (!name || !email || !password || !role) {
+        alert("All fields are required.");
+        return;
+      }
+      if (!validateEmail(email)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return;
+      }
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        await updateProfile(userCredential.user, { displayName: name });
+        // Save user details to Firestore
+        await setDoc(doc(db, "users", userCredential.user.uid), {
+          uid: userCredential.user.uid,
+          name: name,
+          email: email,
+          role: role,
+          createdAt: new Date().toISOString()
+        });
+        // Instead of redirecting to dashboard, show login form and message
+        document.getElementById('signup-view').classList.add('hidden');
+        document.getElementById('login-view').classList.remove('hidden');
+        alert('Signup successful! Please log in with your credentials.');
+      } catch (error) {
+        alert(error.message);
+      }
+    });
+  </script>
+</body>
+</html>

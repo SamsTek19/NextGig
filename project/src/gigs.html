@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="gigs.css">
-<div class="container">
-    <h1 class="view-title">Gig Marketplace</h1>
-    <p>Find your next opportunity. All listings are verified for fair pay and legitimacy.</p>
-
-     <!-- NAVIGATION -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gig Marketplace | NextGig</title>
+  <link rel="stylesheet" href="gigs.css">
+</head>
+<body>
+  <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-brand">
@@ -19,10 +22,9 @@
       </div>
       <div class="nav-menu">
         <a href="dashboard.html" class="nav-link">Dashboard</a>
-        <a href="gigs.html" class="nav-link">Browse Gigs</a>
+        <a href="gigs.html" class="nav-link active">Browse Gigs</a>
         <a href="applications.html" class="nav-link">My Applications</a>
         <a href="profile.html" class="nav-link">Profile</a>
-        <a href="gigs.html" class="nav-link active">Browse Gigs</a>
       </div>
       <div class="nav-toggle" onclick="toggleMobileMenu()">
         <span></span>
@@ -31,6 +33,10 @@
       </div>
     </div>
   </nav>
+
+  <div class="container">
+    <h1 class="view-title">Gig Marketplace</h1>
+    <p>Find your next opportunity. All listings are verified for fair pay and legitimacy.</p>
 
     <!-- Filters -->
     <div class="filters">
@@ -146,4 +152,6 @@
     <div class="view-more-container">
         <a href="more-gigs.html" class="btn btn-primary btn-large">View More Jobs</a>
     </div>
-</div>
+  </div>
+</body>
+</html>

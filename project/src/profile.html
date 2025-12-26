@@ -6,11 +6,14 @@
   <title>My Profile | NextGig</title>
   <link rel="stylesheet" href="profile.css" />
 </head>
-<body>  <!-- Navigation -->
+<body>
+
+<!-- Navigation -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-brand">
         <a href="dashboard.html" class="brand-link">
+          <!-- Optional: Add logo SVG here -->
           <svg class="nav-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
             <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
@@ -21,13 +24,13 @@
       </div>
       <div class="nav-menu">
         <a href="dashboard.html" class="nav-link">Dashboard</a>
-        <a href="applications.html" class="nav-link">My Applications</a>
-        <a href="profile.html" class="nav-link active" aria-current="page">Profile</a>
+        <a href="applications.html" class="nav-link active" aria-current="page">My Applications</a>
+        <a href="profile.html" class="nav-link">Profile</a>
       </div>
     </div>
   </nav>
 
-  <div class="container">
+<div class="container">
     <h1 class="view-title">My Profile & Skills</h1>
     <p>Track your growth, showcase your expertise, and manage your professional reputation.</p>
     <form id="edit-profile-form">
@@ -389,5 +392,6 @@ function loadReviews() {
     `).join('');
 }
 </script>
+
 </body>
 </html>

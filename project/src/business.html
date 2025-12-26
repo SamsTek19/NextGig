@@ -1,5 +1,13 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="business.css">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Microbusiness Dashboard | NextGig</title>
+  <link rel="stylesheet" href="business.css" />
+</head>
+<body>
+
 <div class="container">
     <h1 class="view-title">Microbusiness Dashboard</h1>
     <p>Manage your small business with tools for invoicing, inventory, and performance tracking.</p>
@@ -527,20 +535,20 @@
     .business-overview {
         grid-template-columns: 1fr;
     }
-    
+
     .actions-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .inventory-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .activity-item {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .invoice-details {
         flex-direction: column;
         gap: 0.5rem;
@@ -596,11 +604,11 @@ window.onclick = function(event) {
 document.addEventListener('submit', function(e) {
     if (e.target.id === 'invoice-form') {
         e.preventDefault();
-        
+
         const client = document.getElementById('invoice-client').value;
         const amount = document.getElementById('invoice-amount').value;
         const description = document.getElementById('invoice-description').value;
-        
+
         if (client && amount && description) {
             // This would typically save to Firebase
             alert(`Invoice created for ${client} - $${amount}`);
@@ -609,4 +617,7 @@ document.addEventListener('submit', function(e) {
         }
     }
 });
-</script> 
+</script>
+
+</body>
+</html>

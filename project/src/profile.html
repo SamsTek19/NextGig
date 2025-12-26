@@ -7,7 +7,12 @@
   <link rel="stylesheet" href="profile.css" />
 </head>
 <body>
+<<<<<<< HEAD
   <!-- Navigation -->
+=======
+
+<!-- Navigation -->
+>>>>>>> 4108aceb0e54b73921a3c4dcbb5820bb81e8b67d
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-brand">
@@ -273,11 +278,11 @@
         flex-direction: column;
         text-align: center;
     }
-    
+
     .profile-stats {
         justify-content: center;
     }
-    
+
     .skills-grid {
         grid-template-columns: 1fr;
     }
@@ -303,7 +308,7 @@ function loadUserProfile() {
         avgRating: 4.8,
         skillsCount: 8
     };
-    
+
     document.getElementById('user-name').textContent = user.name;
     document.getElementById('user-role').textContent = user.role;
     document.getElementById('completed-gigs').textContent = user.completedGigs;
@@ -318,7 +323,7 @@ function loadSkills() {
         { name: "Digital Marketing", icon: "📈", level: "Beginner", badge: "Learning" },
         { name: "Project Management", icon: "📋", level: "Intermediate", badge: "Verified" }
     ];
-    
+
     const skillsGrid = document.getElementById('skills-grid');
     skillsGrid.innerHTML = skills.map(skill => `
         <div class="skill-card">
@@ -345,7 +350,7 @@ function loadGigHistory() {
             earnings: "$800"
         }
     ];
-    
+
     const gigsHistory = document.getElementById('gigs-history');
     gigsHistory.innerHTML = gigs.map(gig => `
         <div class="gig-history-item">
@@ -374,7 +379,7 @@ function loadReviews() {
             text: "Great communication and creative design. Would work with again."
         }
     ];
-    
+
     const reviewsContainer = document.getElementById('reviews-container');
     reviewsContainer.innerHTML = reviews.map(review => `
         <div class="review-item">
@@ -390,5 +395,9 @@ function loadReviews() {
     `).join('');
 }
 </script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4108aceb0e54b73921a3c4dcbb5820bb81e8b67d
 </body>
 </html>

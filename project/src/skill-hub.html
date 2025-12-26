@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="skill-hub.css" />
 </head>
 <body>
+<<<<<<< HEAD
   <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="nav-container">
@@ -30,6 +31,10 @@
   </nav>
 
   <div class="container">
+=======
+
+<div class="container">
+>>>>>>> 4108aceb0e54b73921a3c4dcbb5820bb81e8b67d
     <h1 class="view-title">Skill Hub</h1>
     <p>Discover courses and resources to level up your skills in tech, trades, and entrepreneurship.</p>
 
@@ -353,7 +358,7 @@
     .category-tabs {
         justify-content: center;
     }
-    
+
     .courses-grid,
     .paths-grid,
     .resources-grid {
@@ -426,7 +431,7 @@ function loadCourses() {
             icon: "📈"
         }
     ];
-    
+
     const coursesGrid = document.getElementById('courses-grid');
     coursesGrid.innerHTML = courses.map(course => `
         <div class="course-card" data-category="${course.category}">
@@ -448,16 +453,16 @@ function loadCourses() {
 function setupCategoryTabs() {
     const tabs = document.querySelectorAll('.category-tab');
     const courseCards = document.querySelectorAll('.course-card');
-    
+
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
             // Remove active class from all tabs
             tabs.forEach(t => t.classList.remove('active'));
             // Add active class to clicked tab
             tab.classList.add('active');
-            
+
             const category = tab.dataset.category;
-            
+
             // Show/hide course cards based on category
             courseCards.forEach(card => {
                 if (category === 'all' || card.dataset.category === category) {
@@ -470,5 +475,9 @@ function setupCategoryTabs() {
     });
 }
 </script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4108aceb0e54b73921a3c4dcbb5820bb81e8b67d
 </body>
 </html>
